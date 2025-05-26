@@ -3,7 +3,9 @@ import useFetch from "../useFetch";
 
 const Movies = () => {
   const [successMessage, setsuccessMessage] = useState("");
-  const { data, loading, error } = useFetch("api/movies");
+  const { data, loading, error } = useFetch(
+    "https://movies-backend-taupe.vercel.app/movies"
+  );
 
   console.log(data);
   const handleDelete = async (movieId) => {
