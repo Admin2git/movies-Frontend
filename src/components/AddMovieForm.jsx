@@ -29,7 +29,7 @@ export const AddMovieForm = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "https://movies-backend-taupe.vercel.app/movies",
+        "https://movies-backend-dusky-ten.vercel.app/movies",
         {
           method: "POST",
           headers: {

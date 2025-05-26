@@ -3,7 +3,7 @@ import useFetch from "../useFetch";
 
 export const MovieByTitle = ({ title }) => {
   const { data, loading, error } = useFetch(
-    `https://movies-backend-taupe.vercel.app/movies/${title}`
+    `https://movies-backend-dusky-ten.vercel.app/movies/${title}`
   );
 
   console.log(data);
@@ -15,7 +15,10 @@ export const MovieByTitle = ({ title }) => {
       <p>Country: {data.country}</p>
       <p>Release Year: {data.releaseYear}</p>
       <p>Rating: {data.rating}</p>
-      <p>Actors: {data.actors.join(", ")}</p>
+      <p>
+        Actors:
+        {Array.isArray(data.actors) ? data.actors.join(", ") : data.actors}
+      </p>
       <p>Awards: {data.awards}</p>
       <p>Plot: {data.plot}</p>
       <img src={data.posterUrl} alt="Poster Url"></img>
