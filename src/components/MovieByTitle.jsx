@@ -2,7 +2,9 @@ import React from "react";
 import useFetch from "../useFetch";
 
 export const MovieByTitle = ({ title }) => {
-  const { data, loading, error } = useFetch(`api/movies/${title}`);
+  const { data, loading, error } = useFetch(
+    `https://movies-backend-taupe.vercel.app/movies/${title}`
+  );
 
   console.log(data);
 
