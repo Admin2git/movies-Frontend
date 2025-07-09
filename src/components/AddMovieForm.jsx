@@ -27,6 +27,13 @@ export const AddMovieForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const payload = {
+      ...formData,
+      actors: formData.actors.split(",").map((s) => s.trim()),
+      genre: formData.genre.split(",").map((s) => s.trim()),
+    };
+    console.log("Sending:", payload);
     try {
       const response = await fetch(
         "https://movies-backend-dusky-ten.vercel.app/movies",
@@ -35,7 +42,7 @@ export const AddMovieForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(payload),
         }
       );
       console.log("Sending data:", formData);
